@@ -10,11 +10,11 @@ public class MathController {
             @PathVariable(value = "numberOne") String numberOne,
             @PathVariable(value = "numberTwo") String numberTwo
     )throws Exception{
-        //if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-          //  throw new Exception();
-        //}
-     //   return convertToDouble(numberOne) + convertToDouble(numberTwo);
-    return Double.parseDouble(numberOne) + Double.parseDouble(numberTwo);
+        if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+            throw new Exception();
+        }
+        return convertToDouble(numberOne) + convertToDouble(numberTwo);
+    //return Double.parseDouble(numberOne) + Double.parseDouble(numberTwo);
     }
 
     private Double convertToDouble(String strnumber) {
@@ -28,6 +28,6 @@ public class MathController {
     private boolean isNumeric(String strnumber){
         if( strnumber == null )return false;
         String number = strnumber.replaceAll(",",".");
-        return number.matches("[-+]?[0-9]* \\.?[0-9]+");
+        return number.matches("([\\d|.]+)");
     }
 }
