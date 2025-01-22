@@ -10,11 +10,12 @@ public class MathController {
             @PathVariable(value = "numberOne") String numberOne,
             @PathVariable(value = "numberTwo") String numberTwo
     )throws Exception{
-        if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new Exception();
-        }
-        return convertToDouble(numberOne) + convertToDouble(numberTwo);
-        }
+        //if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+          //  throw new Exception();
+        //}
+     //   return convertToDouble(numberOne) + convertToDouble(numberTwo);
+    return Double.parseDouble(numberOne) + Double.parseDouble(numberTwo);
+    }
 
     private Double convertToDouble(String strnumber) {
         if(strnumber == null) return 0D;
